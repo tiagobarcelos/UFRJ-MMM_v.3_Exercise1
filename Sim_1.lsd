@@ -756,6 +756,7 @@ Label Root
 		Var: Loans_Distribution_Firms
 		Param: switch_foroward_looking
 		Var: Country_Total_emissions
+		Var: Country_GDP_emissions_coef
 
 	}
 
@@ -856,6 +857,7 @@ Var: Exit_Productive_Capacity 0 n + n n
 Var: Loans_Distribution_Firms 0 n + n n
 Param: switch_foroward_looking 0 n + n n	0
 Var: Country_Total_emissions 1 s + n n	1
+Var: Country_GDP_emissions_coef 0 s + n n
 
 Object: CLASSES C	3
 Param: class_autonomous_consumption_adjustment 0 n + n n	1	0.5	0.1
@@ -1879,6 +1881,10 @@ Variable_Country_Total_emissions
 Country's total emissions exogenous in t(0) and increasing according to average emissions country annual growth annual rate.
 _INIT_
 All 1 instances equal to 1
+END_DESCRIPTION
+
+Variable_Country_GDP_emissions_coef
+Emissions coefficient given by Total Emissions Country (exogenous) / GDP
 END_DESCRIPTION
 
 Object_CLASSES
