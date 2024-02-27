@@ -377,6 +377,31 @@ Annual Real GDP Growth rate.
 	v[3]= v[2]!=0? (v[1]-v[2])/v[2] : 0;
 RESULT(v[3])
 
+EQUATION("Country_Total_emissions")
+/*
+Country's total emissions exogenous in t(0) and increasing according to average emissions country annual growth annual rate.
+*/
+	v[0]=CURRENT;          
+	v[1]=V("Country_Annual_Real_Growth");       
+	v[2]=v[0]*(1+v[1]);
+	
+RESULT(v[2])
+
+EQUATION("Country_Total_emissions")
+	v[0]=VL("Country_Total_emissions", 1)
+RESULT(v[0])	
+
+EQUATION("Country_GDP_emissions_coef")
+/*
+Emissions coefficient given by Total Emissions Country (exogenous) / GDP
+*/
+	v[0]=V("Country_Real_GDP");
+	v[1]=V("Country_Total_emissions"); 				
+	v[2]=v[1]/v[0];
+	
+RESULT(v[2])
+
+
 
 EQUATION("Country_Likelihood_Crisis")
 /*
